@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @SpringBootTest(classes = MyWebApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+// @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class HelloControllerTest {
 
     @Autowired
@@ -18,7 +18,7 @@ public class HelloControllerTest {
     @Test
     public void holaOk() throws Exception {
         ResponseEntity<String> response = template.getForEntity("/hola", String.class);
-        
+
         // check that the body contains a <p> tag with the text "¡Hola Mundo!"
         assertThat(response.getBody()).contains("<p>¡Hola Mundo!</p>");
     }
@@ -28,6 +28,6 @@ public class HelloControllerTest {
         ResponseEntity<String> response = template.getForEntity("/hola?nombre=EMSAlumno", String.class);
 
         // check that the body contains a <p> tag with the text "¡Hola EMSAlumno!"
-        assertThat(response.getBody()).contains("<p>¡Hola EMSAlumno!</p>");
+        assertThat(response.getBody()).contains("<p>¡Hola EMSAlumno CON ERROR!</p>");
     }
 }
